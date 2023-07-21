@@ -1,24 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Recipe Search</title>
-<link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder</title>
+    <!-- Add  CSS links  -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1>Recipe Search</h1>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipelist.html">Recipes & Menus</a></li>
+                <li><a href="nutritional.html">Nutritional</a></li>
+            </ul>
+            <!--dropdown menu  -->
+            <div class="dropdown">
+                <button class="dropbtn">More</button>
+                <div class="dropdown-content">
+                    <a href="recipelist.html">Recipe List</a>
+                </div>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Find a recipe">
+                <button type="submit" onclick="filterRecipes()">Search</button>
+            </div>
+            <!-- sign-in bar here -->
+            <div class="sign-in-bar">
+                <a href="signin.html"><button type="button">Sign In</button></a>
+            </div>
+        </nav>
+    </header>
 
+    <!-- Main Content Section -->
+    <main>
+        <div class="welcome-section">
+            <h1>Welcome to Recipe Finder!</h1>
+            <!-- You can add more welcome content here -->
+        </div>
 
-<form id="search-form">
-<input type="text" id="query-input" placeholder="Enter a recipe query">
-<button type="submit">Search</button>
-</form>
+        <h2>Popular Recipes</h2>
+        <ul class="popular-recipes">
+            <li><a href="recipe.html">Recipe 1</a></li>
+            <li><a href="recipe.html">Recipe 2</a></li>
+            <li><a href="recipe.html">Recipe 3</a></li>
+            <!-- Add more popular recipes links here -->
+        </ul>
+    </main>
 
+    <!-- Footer Section -->
+    <footer>
+        <!--  social media links  -->
+        <div class="social-box">
+            <a href="#" target="_blank" class="social-link">Facebook</a>
+            <a href="#" target="_blank" class="social-link">Twitter</a>
+            <a href="#" target="_blank" class="social-link">Instagram</a>
+        </div>
+    </footer>
 
-<div id="results-container">
-<h2>Search Results</h2>
-<div id="recipes-list"></div>
-</div>
-
-<script src="/script.js"></script>    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
