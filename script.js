@@ -1,6 +1,6 @@
 // Function to handle the recipe search
 function searchRecipes(query) {
-    const appId = '9267bdde'; 
+    const appId = '9267bdde';
     const appKey = '4529adbb76333a4f1081930cfc2af312';
     const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${appKey}`;
 
@@ -40,6 +40,17 @@ function searchRecipes(query) {
 
                 // Add the recipe card to the recipes list
                 recipesList.appendChild(recipeCard);
+
+                recipeName.addEventListener("click", function() {
+                    console.log("works");
+                    var descriptionArray = [recipe.cuisineType, recipe.dishType, recipe.mealType];
+                    window.localStorage.setItem("RecipeName", recipe.label);
+                    window.localStorage.setItem("RecipeImage", recipe.image);
+                    window.localStorage.setItem("RecipeIngredients", JSON.stringify(recipe.ingredients));
+                    window.localStorage.setItem("RecipeDescription", descriptionArray);
+                    window.localStorage.setItem("RecipeLink", recipe.url);
+                    window.location.replace("recipe.html");
+                })
             });
         } else {
             console.log("No recipes found.");
