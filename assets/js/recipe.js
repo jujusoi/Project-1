@@ -2,6 +2,7 @@ var foodTitle = document.querySelector("#recipe-title");
 var foodImage = document.querySelector("#recipe-image");
 var foodDescription = document.querySelector("#recipe-description");
 var recipeLink = document.querySelector("#recipe-link");
+var recipeNutrientList = document.querySelector("#nutrient-list");
 
 function init() {
     var foodName = window.localStorage.getItem("RecipeName");
@@ -29,7 +30,26 @@ function makeIngredientList(ingredients) {
     }
 }
 
+function makeNutrientList(ingredients) {
+    var parseNutrients = JSON.parse(ingredients)
+    console.log(parseNutrients);
+
+    for (var i = 0; i < parseNutrients.length; i++) {
+        var newListItem = document.createElement("li");
+        var nutrientLabel = parseNutrients[i].label;
+        var nutrientAmount = parseNutrients[i].total;
+        var nutrientUnit = parseNutrients[i].unit;
+
+        var cutDecimals = nutrientAmount.toFixed(1);
+
+        newListItem.textContent = nutrientLabel + ": " + cutDecimals + nutrientUnit;
+        recipeNutrientList.appendChild(newListItem);
+    }
+
+}
+
 makeIngredientList(window.localStorage.getItem("RecipeIngredients"));
+makeNutrientList(window.localStorage.getItem("RecipeNutrients"));
 
 function determineaOrAn(startingLetter) {
     var vowels = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"];
