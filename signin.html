@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Recipe Finder</title>
+    <!-- Add  CSS link  -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="nav-logo">
+                <a href="index.html"><img src="logo.png" alt="Recipe Finder"></a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="recipelist.html">Recipes & Menus</a></li>
+                    <li><a href="nutritional.html">Nutritional</a></li>
+                </ul>
+                <!-- dropdown menu  -->
+                <div class="dropdown">
+                    <button class="dropbtn">More</button>
+                    <div class="dropdown-content">
+                        <a href="recipelist.html">Recipe List</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Find a recipe">
+                <button type="submit" onclick="filterRecipes()">Search</button>
+            </div>
+            <!-- Add your sign-in bar here -->
+            <div class="sign-in-bar">
+                <button type="button" onclick="goToSignInPage()">Sign In</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <div class="signin-form">
+            <h1>Sign In</h1>
+            <form id="signInForm" onsubmit="signIn(event)">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Sign In</button>
+            </form>
+            <hr>
+            <h1>Sign Up</h1>
+            <form id="signUpForm" onsubmit="signUp(event)">
+                <label for="newUsername">Username:</label>
+                <input type="text" id="newUsername" name="newUsername" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="newPassword">Password:</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <div class="error-link">
+                <a href="error.html">Click here to view an example error page</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <!-- Add your social media links here -->
+        <div class="social-box">
+            <a href="#" target="_blank" class="social-link">Facebook</a>
+            <a href="#" target="_blank" class="social-link">Twitter</a>
+            <a href="#" target="_blank" class="social-link">Instagram</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
