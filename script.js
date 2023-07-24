@@ -70,3 +70,85 @@ document.getElementById('search-form').addEventListener('submit', function(event
     const query = document.getElementById('query-input').value;
     searchRecipes(query);
 });
+
+
+function initSavedItems(info) {
+    var saveContainer = document.querySelector("#saved-container");
+    for (var i = 0; i < info.length; i++) {
+        var savedName = info[i].foodName;
+        var savedImg = info[i].foodImage;
+
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("class", "saved-item");
+
+        var createImg = document.createElement("img");
+        createImg.setAttribute("class", "saved-image");
+
+        var createInfoDiv = document.createElement("div");
+        createInfoDiv.setAttribute("class", "saved-info");
+
+        var createSaveTitle = document.createElement("h3");
+        createSaveTitle.setAttribute("class", "saved-header");
+
+        var createButton = document.createElement('button');
+        createButton.setAttribute("class", "saved-unsaved");
+        createButton.textContent = "Remove";
+
+        createSaveTitle.textContent = savedName;
+        createImg.setAttribute("src", savedImg);
+
+        createInfoDiv.appendChild(createSaveTitle);
+        createInfoDiv.appendChild(createButton);
+
+        createDiv.appendChild(createImg);
+        createDiv.appendChild(createInfoDiv);
+        
+        saveContainer.appendChild(createDiv);
+    }
+    saveContainer.addEventListener("click", function(event) {
+        var target = event.target;
+        var info = JSON.parse(window.localStorage.getItem("SavedFoods"));
+        for (var i = 0; i < info.length; i++) {
+            var recipeName = info[i].foodName;
+            if (target.textContent === recipeName) {
+                console.log(recipeName);
+
+                var savedName = info[i].foodName;
+                var savedImg = info[i].foodImage;
+                var savedIngr = info[i].foodIngredients;
+                var savedDesc = info[i].foodDescription;
+                var savedLink = info[i].foodRecipe;
+                var savedNutr = info[i].foodNutrients;
+
+                window.localStorage.setItem("RecipeName", savedName);
+                window.localStorage.setItem("RecipeImage", savedImg);
+                window.localStorage.setItem("RecipeIngredients", JSON.stringify(savedIngr));
+                window.localStorage.setItem("RecipeDescription", savedDesc);
+                window.localStorage.setItem("RecipeLink", savedLink);
+                window.localStorage.setItem("RecipeNutrients", JSON.stringify(savedNutr));
+                window.location.replace("recipe.html");
+            }
+        }
+    })
+    saveContainer.addEventListener("click", function(event) {
+        var target = event.target;
+        var savedItems = JSON.parse(window.localStorage.getItem("SavedFoods"));
+        var isButton = target.classList.contains('saved-unsaved');
+        if (isButton) {
+            var parentEle = target.parentElement;
+            var savedIngrTitle = parentEle.children[0].textContent;
+            for (var i = 0; i < savedItems.length; i++) {
+                var compareTitle = savedItems[i].foodName;
+                if (savedIngrTitle === compareTitle) {
+                    savedItems.splice(i, 1);
+                    window.localStorage.setItem("SavedFoods", JSON.stringify(savedItems));
+                    window.location.reload();
+                }
+            }
+        }
+    })
+}
+
+
+
+initSavedItems(JSON.parse(window.localStorage.getItem("SavedFoods")));

@@ -17,8 +17,12 @@ function init() {
     recipeLink.href = recipeLinkItem;
     foodTitle.textContent = foodName;
     foodImage.setAttribute("src", foodImgSrc);
-    determineIfSaved();
-}
+    if (window.localStorage.getItem("SavedFoods") === null) {
+        return
+    } else {
+        determineIfSaved();
+    }
+};
 
 function makeIngredientList(ingredients) {
     var recipeUl = document.querySelector("#recipe-list");
@@ -78,10 +82,10 @@ function saveObject() {
         var savedObjArray = JSON.parse(window.localStorage.getItem("SavedFoods")) || [];
         var savedObject = {
             foodName: document.querySelector("#recipe-title").textContent,
-            foodDescription: document.querySelector("#recipe-description").textContent,
+            foodDescription: getDesc(),
             foodImage: document.querySelector("#recipe-image").getAttribute("src"),
-            foodIngredients: getIngr(),
-            foodNutrients: getNutr(),
+            foodIngredients: parsIngredients(),
+            foodNutrients: parseNutr(),
             foodRecipe: recipeLink.getAttribute("href")
         };
         savedObjArray.push(savedObject);
@@ -114,22 +118,17 @@ function determineIfSaved() {
     }
 }
 
-function getIngr() {
-    var ingredientList = document.querySelector("#recipe-list");
-    var ingredientChildren = ingredientList.childElementCount;
-    var ingredientArray = [];
-    for (var i = 0; i < ingredientChildren; i++) {
-        var ingredientTextContent = ingredientList.children[i].textContent;
-        ingredientArray.push(ingredientTextContent);
-    } return ingredientArray;
+function parsIngredients() {
+    var parsedIngr = JSON.parse(window.localStorage.getItem("RecipeIngredients"));
+    return parsedIngr;
 }
-function getNutr() {
-    var nutriList = document.querySelector("#nutrient-list");
-    var nutriChildren = nutriList.childElementCount;
-    var nutriArray = [];
-    for (var i = 0; i < nutriChildren; i++) {
-        var nutriTextContent = nutriList.children[i].textContent;
-        nutriArray.push(nutriTextContent);
-    } 
-    return nutriArray;
+
+function parseNutr() {
+    var parsedNutr = JSON.parse(window.localStorage.getItem("RecipeNutrients"))
+    return parsedNutr;
+}
+
+function getDesc() {
+    var desc = window.localStorage.getItem("RecipeDescription");
+    return desc;
 }
