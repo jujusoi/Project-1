@@ -8,6 +8,8 @@ function searchRecipes(query) {
     .then(response => response.json())
     .then(data => {
         if (data.count > 0) {
+            console.log(data)
+            
             const recipesList = document.getElementById('recipes-list');
             recipesList.innerHTML = ''; // Clear previous results
             data.hits.forEach(hit => {
@@ -49,6 +51,7 @@ function searchRecipes(query) {
                     window.localStorage.setItem("RecipeIngredients", JSON.stringify(recipe.ingredients));
                     window.localStorage.setItem("RecipeDescription", descriptionArray);
                     window.localStorage.setItem("RecipeLink", recipe.url);
+                    window.localStorage.setItem("RecipeNutrients", JSON.stringify(recipe.digest));
                     window.location.replace("recipe.html");
                 })
             });
