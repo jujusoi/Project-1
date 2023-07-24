@@ -22,10 +22,12 @@
                 <a href="recipelist.html">Recipe List</a>
             </div>
         </div>
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Find a recipe">
-            <button type="submit" onclick="filterRecipes()">Search</button>
-        </div>
+        <form class="search-form">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Find a recipe">
+                <button type="submit" id="searchButton">Search</button>
+            </div>
+        </form>
         <!-- sign-in bar -->
         <div class="sign-in-bar">
             <a href="signin.html"><button type="button">Sign In</button></a>
@@ -37,16 +39,23 @@
     <main>
         <div class="recipe-list-container">
             <h1>Popular Recipes</h1>
+            <!-- Adding filter inputs and button -->
+            <div class="filter-controls">
+                <label for="cookingTimeInput">Max Cooking Time (minutes):</label>
+                <input type="number" id="cookingTimeInput" min="0" step="5">
+                <label for="caloriesInput">Max Calories:</label>
+                <input type="number" id="caloriesInput" min="0" step="50">
+                <button id="filterButton">Filter Recipes</button>
+                <button id="sortByCookingTime">Sort By Cooking Time</button>
+                <button id="sortByCalories">Sort By Calories</button>
+            </div>
+
             <div class="recipe-list" id="recipeList">
                 <!-- Recipe list will be dynamically generated using JavaScript -->
             </div>
-            <button onclick="filterRecipes()">Filter Recipes</button>
-            <div class="error-link">
-                <a href="error.html">Click here to view an example error page</a>
-            </div>
         </div>
     </main>
-
+    
     <!-- Footer Section -->
     <footer>
         <!-- social media links -->
@@ -56,6 +65,9 @@
             <a href="#" target="_blank" class="social-link">Instagram</a>
         </div>
     </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- JavaScript -->
     <script src="recipelist.js"></script>
