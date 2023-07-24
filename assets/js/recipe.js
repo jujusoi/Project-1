@@ -17,6 +17,7 @@ function init() {
     recipeLink.href = recipeLinkItem;
     foodTitle.textContent = foodName;
     foodImage.setAttribute("src", foodImgSrc);
+    determineIfSaved();
 }
 
 function makeIngredientList(ingredients) {
@@ -101,6 +102,18 @@ function saveObject() {
     }
 }
 
+function determineIfSaved() {
+    var compareTitle = foodTitle.textContent;
+    var info = JSON.parse(window.localStorage.getItem("SavedFoods"));
+    for (var i = 0; i < info.length; i++) {
+        var foodName = info[i].foodName;
+        if (foodName === compareTitle) {
+            saveButton.setAttribute("data-activated", "yes");
+            saveButton.textContent = "Remove";
+        }
+    }
+}
+
 function getIngr() {
     var ingredientList = document.querySelector("#recipe-list");
     var ingredientChildren = ingredientList.childElementCount;
@@ -119,9 +132,4 @@ function getNutr() {
         nutriArray.push(nutriTextContent);
     } 
     return nutriArray;
-}
-
-function grabSavedObjs(saved) {
-    if (saved === null) {
-    }
 }
