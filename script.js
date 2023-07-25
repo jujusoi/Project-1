@@ -1,4 +1,3 @@
-// Function to handle the recipe search
 function searchRecipes(query) {
     const appId = '9267bdde';
     const appKey = '4529adbb76333a4f1081930cfc2af312';
@@ -11,11 +10,10 @@ function searchRecipes(query) {
             console.log(data)
             
             const recipesList = document.getElementById('recipes-list');
-            recipesList.innerHTML = ''; // Clear previous results
+            recipesList.innerHTML = '';
             data.hits.forEach(hit => {
                 const recipe = hit.recipe;
 
-                // Create HTML elements for the recipe details
                 const recipeCard = document.createElement('div');
                 recipeCard.classList.add('recipe-card');
 
@@ -40,7 +38,6 @@ function searchRecipes(query) {
                 recipeCookingTime.textContent = 'Cooking Time: ' + recipe.totalTime + ' minutes';
                 recipeCard.appendChild(recipeCookingTime);
 
-                // Add the recipe card to the recipes list
                 recipesList.appendChild(recipeCard);
 
                 recipeName.addEventListener("click", function() {
@@ -64,13 +61,11 @@ function searchRecipes(query) {
     });
 }
 
-// Event listener for form submission
 document.getElementById('search-form').addEventListener('submit', function(event) {
     event.preventDefault();
     const query = document.getElementById('query-input').value;
     searchRecipes(query);
 });
-
 
 function initSavedItems(info) {
     var saveContainer = document.querySelector("#saved-container");
@@ -149,6 +144,13 @@ function initSavedItems(info) {
     })
 }
 
+function saveStuff() {
+    var info = JSON.parse(window.localStorage.getItem("SavedFoods"));
+    if (info === null) {
+        return
+    } else {
+        initSavedItems(info);
+    }
+}
 
-
-initSavedItems(JSON.parse(window.localStorage.getItem("SavedFoods")));
+saveStuff();
