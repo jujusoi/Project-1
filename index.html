@@ -1,73 +1,156 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Finder</title>
-    <!-- Add  CSS links  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="recipelist.html">Recipes & Menus</a></li>
-                <li><a href="nutritional.html">Nutritional</a></li>
-            </ul>
-            <!--dropdown menu  -->
-            <div class="dropdown">
-                <button class="dropbtn">More</button>
-                <div class="dropdown-content">
-                    <a href="recipelist.html">Recipe List</a>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <strong>Recipe Radar</strong>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a href="index.html" class="navbar-item">Home</a>
+                <a href="recipelist.html" class="navbar-item">Recipes</a>
+                <a href="nutritional.html" class="navbar-item">Nutritional</a>
+                <a href="recipelist.html" class="navbar-item">Recipe List</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <button class="button custom-button-color is-rounded">Sign-in</button>
                 </div>
             </div>
-            <div class="search-bar">
-                <form id="search-form">
-                    <input type="text" id="query-input" placeholder="Enter a recipe query">
-                    <button type="submit">Search</button>
-                    </form>                    
-            </div>
-            <!-- sign-in bar here -->
-            <div class="sign-in-bar">
-                <a href="signin.html"><button type="button">Sign In</button></a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Content Section -->
-    <main>
-        <div class="welcome-section">
-            <h1>Welcome to Recipe Finder!</h1>
-            <!-- You can add more welcome content here -->
         </div>
-
-        <div id="results-container">
-            <h2>Search Results</h2>
-            <div id="recipes-list"></div>
+    </nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns is-vcentered is-centered">
+                <div class="column is-narrow">
+                    <figure class="image">
+                        <img src="./assets/images/sitelogo.png" alt="Logo" class="custom-logo">
+                    </figure>
+                </div>
+                <div class="column custom-max-width">
+                    <h1 class="title is-5 has-text-left custom-title-color">Don't know what to cook with what ingredients you have?</h1>
+                    <p class="subtitle is-5 custom-subtitle-color">Our handy website can help you find recipes from the keywords you
+                        put in. Alongside that, there is also a handy nutritional guide to ensure
+                        the healthiest of meals.
+                        <br>
+                        <br>
+                        Love a recipe so much that you don't want to forget it? Save them by
+                        starring the recipe and find them back here on the main page.</p>
+                    <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <input class="input is-rounded" type="text" placeholder="Search an Ingredient">
+                        </div>
+                        <div class="control">
+                            <button class="button custom-button-color is-rounded">
+                                <span class="icon icon-rounded">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="field has-text-centered">
+                        <a href="recipelist.html" class="button is-medium is-rounded custom-button-color">Browse All Recipes</a>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-        <h2>Popular Recipes</h2>
-        <ul class="popular-recipes">
-            <li><a href="recipe.html">Recipe 1</a></li>
-            <li><a href="recipe.html">Recipe 2</a></li>
-            <li><a href="recipe.html">Recipe 3</a></li>
-            <!-- Add more popular recipes links here -->
-        </ul>
-    </main>
+    <!-- New section for favorite saved recipes -->
+    <section class="section">
+        <div class="container">
+            <div class="has-text-centered mb-6">
+                <button id="toggleButton" class="button custom-button-color is-rounded">View Saved Recipes</button>
+            </div>
+            <div id="recipeCards" class="columns is-multiline is-centered is-hidden">
+                <!-- Placeholder for favorite recipe card -->
+                <div class="column is-one-quarter">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://placehold.co/600x400/png" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title">Recipe Title</p>
+                            <p class="subtitle">Recipe Subtitle</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- More recipe cards... -->
+                <div class="column is-one-quarter">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://placehold.co/600x400/png" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title">Recipe Title</p>
+                            <p class="subtitle">Recipe Subtitle</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-one-quarter">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="https://placehold.co/600x400/png" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title">Recipe Title</p>
+                            <p class="subtitle">Recipe Subtitle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <!--  social media links  -->
-        <div class="social-box">
-            <a href="#" target="_blank" class="social-link">Facebook</a>
-            <a href="#" target="_blank" class="social-link">Twitter</a>
-            <a href="#" target="_blank" class="social-link">Instagram</a>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <a href="#"><i class="fab fa-facebook icon is-large"></i></a>
+                <a href="#"><i class="fab fa-twitter icon is-large"></i></a>
+                <a href="#"><i class="fab fa-snapchat icon is-large"></i></a>
+            </p>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script src="./script.js"></script>
+    <script>
+       
+        document.getElementById("toggleButton").addEventListener("click", function() {
+            var recipeCards = document.getElementById("recipeCards");
+            if (recipeCards.classList.contains("is-hidden")) {
+                recipeCards.classList.remove("is-hidden");
+            } else {
+                recipeCards.classList.add("is-hidden");
+            }
+        });
+         document.querySelector('.saved-recipes-button').addEventListener('click', function() {
+            var recipeCards = document.querySelector('.recipe-cards');
+            recipeCards.style.height = recipeCards.scrollHeight + 'px';
+        });
+
+        
+    </script>
+</body>
+</html>
 </body>
 </html>
