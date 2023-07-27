@@ -3,16 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
 
 body {
-    font-family: 'Arimo', sans-serif;
+    font-family: 'Lato', sans-serif;
     line-height: 1.6;
-    color: white;
     background-color: #d5eaed;
 }
-footer, .footer {
-    background-color: #d5eaed;
-}
+
+
 .custom-max-width {
-    max-width: 600px; /* Set this to whatever you prefer */
+    max-width: 750px; /* Set this to whatever you prefer */
 }
 
 .custom-button-color {
@@ -31,6 +29,20 @@ footer, .footer {
 
 }
 
+.logo-nav {
+    width: 100px;  
+    height: 100px; 
+}
+
+.title.is-5 {
+    font-weight: 900;
+    font-size: 2rem;
+}   
+
+#searchInput {
+    text-align: center;
+}
+
 .icon-rounded {
     background-color: transparent;
     padding: 10px; 
@@ -47,6 +59,7 @@ input::placeholder {
     width: 400px !important;  
     height: 400px !important; 
 }
+
 .custom-column {
     margin-right: 20px;
 }
@@ -82,5 +95,6 @@ input::placeholder {
     overflow: hidden;
     transition: height 0.3s ease-in-out;
 }
+
 
  
