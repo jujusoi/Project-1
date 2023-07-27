@@ -51,11 +51,14 @@
                         starring the recipe and find them back here on the main page.</p>
                     <div class="field has-addons">
                         <div class="control is-expanded">
-                            <form id="input-form">
+        <form id="input-form">
                                 <input id="searchInput" class="input is-rounded" type="text" placeholder="Search an Ingredient">
                             </form>
                         </div>
                         <div id="searchButton" class="control">
+                            <input class="input is-rounded" type="text" placeholder="Search an Ingredient">
+                        </div>
+                        <div class="control">
                             <button class="button custom-button-color is-rounded">
                                 <span class="icon icon-rounded">
                                     <i class="fas fa-search"></i>
@@ -107,9 +110,7 @@
          document.querySelector('.saved-recipes-button').addEventListener('click', function() {
             var recipeCards = document.querySelector('.recipe-cards');
             recipeCards.style.height = recipeCards.scrollHeight + 'px';
-        });
-
-        
+        });  
     </script>
     <script>
 document.getElementById('searchButton').addEventListener('click', function(event) {
