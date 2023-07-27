@@ -15,11 +15,11 @@ const firebaseConfig = {
   // Get the auth object
   const auth = firebase.auth();
   
-  // Function to handle sign-in
-  function signIn(event) {
+// Function to handle sign-in
+function signIn(event) {
     event.preventDefault();
   
-    const email = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
   
     // Use Firebase SDK to sign in
@@ -52,3 +52,9 @@ const firebaseConfig = {
         console.error("Sign-up error:", error);
       });
   }
+  
+  
+  
+  
+  
+  
