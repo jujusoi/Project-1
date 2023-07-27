@@ -42,7 +42,6 @@ function searchRecipes(query) {
 
                 // Add the recipe card to the recipes list
                 recipesList.appendChild(recipeCard);
-
                 recipeName.addEventListener("click", function() {
                     console.log("works"); 
                     var descriptionArray = [recipe.cuisineType, recipe.dishType, recipe.mealType]; // Create description array
@@ -64,9 +63,115 @@ function searchRecipes(query) {
     });
 }
 
+function initSavedItems(info) {
+    var saveContainer = document.querySelector("#recipeCards");
+    for (var i = 0; i < info.length; i++) {
+        var savedName = info[i].foodName;
+        var savedImg = info[i].foodImage;
+
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("class", "column is-one-quarter");
+        
+        var cardDiv = document.createElement("div");
+        cardDiv.setAttribute("class", "card");
+
+        var cardImgDiv = document.createElement("div");
+        cardImgDiv.setAttribute("class", "card-image");
+
+        var cardImgFig = document.createElement("figure");
+        cardImgFig.setAttribute("class", "image is-4by3");
+
+        var createImg = document.createElement("img");
+        createImg.setAttribute("class", "saved-image");
+
+        createImg.setAttribute("src", savedImg);
+
+        var contentDiv = document.createElement("div");
+        contentDiv.setAttribute("class", "card-content");
+
+        var contentTitle = document.createElement("p");
+        contentTitle.setAttribute("class", "title");
+        contentTitle.textContent = savedName;
+        var contentSub = document.createElement("p");
+        contentSub.setAttribute("class", "subtitle");
+
+        var createButton = document.createElement('button');
+        createButton.setAttribute("class", "saved-unsaved");
+        createButton.textContent = "X";
+
+        cardImgFig.appendChild(createImg);
+        cardImgDiv.appendChild(cardImgFig);
+        
+        contentDiv.appendChild(contentTitle);
+        contentDiv.appendChild(contentSub);
+        contentDiv.appendChild(createButton);
+
+        cardDiv.appendChild(cardImgDiv);
+        cardDiv.appendChild(contentDiv);
+
+        createDiv.appendChild(cardDiv);
+
+        saveContainer.appendChild(createDiv);
+    }
+    saveContainer.addEventListener("click", function(event) {
+        var target = event.target;
+        var info = JSON.parse(window.localStorage.getItem("SavedFoods"));
+        for (var i = 0; i < info.length; i++) {
+            var recipeName = info[i].foodName;
+            if (target.textContent === recipeName) {
+                console.log(recipeName);
+
+                var savedName = info[i].foodName;
+                var savedImg = info[i].foodImage;
+                var savedIngr = info[i].foodIngredients;
+                var savedDesc = info[i].foodDescription;
+                var savedLink = info[i].foodRecipe;
+                var savedNutr = info[i].foodNutrients;
+
+                window.localStorage.setItem("RecipeName", savedName);
+                window.localStorage.setItem("RecipeImage", savedImg);
+                window.localStorage.setItem("RecipeIngredients", JSON.stringify(savedIngr));
+                window.localStorage.setItem("RecipeDescription", savedDesc);
+                window.localStorage.setItem("RecipeLink", savedLink);
+                window.localStorage.setItem("RecipeNutrients", JSON.stringify(savedNutr));
+                window.location.replace("recipe.html");
+            }
+        }
+    })
+    saveContainer.addEventListener("click", function(event) {
+        var target = event.target;
+        var savedItems = JSON.parse(window.localStorage.getItem("SavedFoods"));
+        var isButton = target.classList.contains('saved-unsaved');
+        if (isButton) {
+            var parentEle = target.parentElement;
+            var savedIngrTitle = parentEle.children[0].textContent;
+            for (var i = 0; i < savedItems.length; i++) {
+                var compareTitle = savedItems[i].foodName;
+                if (savedIngrTitle === compareTitle) {
+                    savedItems.splice(i, 1);
+                    window.localStorage.setItem("SavedFoods", JSON.stringify(savedItems));
+                    window.location.reload();
+                }
+            }
+        }
+    })
+}
+
+function saveStuff() {
+    var info = JSON.parse(window.localStorage.getItem("SavedFoods"));
+    if (info === null) {
+        return
+    } else {
+        initSavedItems(info);
+    }
+}
+
+saveStuff();
+
 // Event listener for form submission
 document.getElementById('search-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting
     const query = document.getElementById('query-input').value; // Get the query
     searchRecipes(query); // Call the searchRecipes function
 });
+

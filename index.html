@@ -51,6 +51,11 @@
                         starring the recipe and find them back here on the main page.</p>
                     <div class="field has-addons">
                         <div class="control is-expanded">
+        <form id="input-form">
+                                <input id="searchInput" class="input is-rounded" type="text" placeholder="Search an Ingredient">
+                            </form>
+                        </div>
+                        <div id="searchButton" class="control">
                             <input class="input is-rounded" type="text" placeholder="Search an Ingredient">
                         </div>
                         <div class="control">
@@ -76,47 +81,6 @@
                 <button id="toggleButton" class="button custom-button-color is-rounded">View Saved Recipes</button>
             </div>
             <div id="recipeCards" class="columns is-multiline is-centered is-hidden">
-                <!-- Placeholder for favorite recipe card -->
-                <div class="column is-one-quarter">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://placehold.co/600x400/png" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <p class="title">Recipe Title</p>
-                            <p class="subtitle">Recipe Subtitle</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- More recipe cards... -->
-                <div class="column is-one-quarter">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://placehold.co/600x400/png" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <p class="title">Recipe Title</p>
-                            <p class="subtitle">Recipe Subtitle</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="column is-one-quarter">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://placehold.co/600x400/png" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <p class="title">Recipe Title</p>
-                            <p class="subtitle">Recipe Subtitle</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -146,9 +110,21 @@
          document.querySelector('.saved-recipes-button').addEventListener('click', function() {
             var recipeCards = document.querySelector('.recipe-cards');
             recipeCards.style.height = recipeCards.scrollHeight + 'px';
-        });
-
-        
+        });  
+    </script>
+    <script>
+document.getElementById('searchButton').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+    const query = document.getElementById('searchInput').value; // Get the query
+    window.location.href = `recipelist.html?ingredient=${query}`; // Redirect to recipelist.html with the query as a URL parameter
+});
+    </script>
+    <script>
+        document.getElementById('input-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+    const query = document.getElementById('searchInput').value; // Get the query
+    window.location.href = `recipelist.html?ingredient=${query}`; // Redirect to recipelist.html with the query as a URL parameter
+});
     </script>
 </body>
 </html>
