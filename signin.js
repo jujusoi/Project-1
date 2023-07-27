@@ -15,43 +15,69 @@ const firebaseConfig = {
   // Get the auth object
   const auth = firebase.auth();
   
-// Function to handle sign-in
-function signIn(event) {
+// Function to handle sign-up
+function signUp(event) {
     event.preventDefault();
   
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-  
-    // Use Firebase SDK to sign in
-    auth.signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Sign-in successful, do something (e.g., redirect to another page)
-        console.log("Sign-in successful:", userCredential.user);
-      })
-      .catch((error) => {
-        // Handle sign-in errors
-        console.error("Sign-in error:", error);
-      });
-  }
-  
-  // Function to handle sign-up
-  function signUp(event) {
-    event.preventDefault();
-  
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("newPassword").value;
+    var email = document.getElementById("signUpEmail").value;
+    var password = document.getElementById("newPassword").value;
   
     // Use Firebase SDK to create a new user account
-    auth.createUserWithEmailAndPassword(email, password)
+    firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         // Sign-up successful, do something (e.g., show a success message)
-        console.log("Sign-up successful:", userCredential.user);
+        var user = userCredential.user;
+        console.log("Sign-up successful:", user);
       })
       .catch((error) => {
         // Handle sign-up errors
-        console.error("Sign-up error:", error);
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.error("Sign-up error:", errorMessage);
       });
   }
+ 
+  
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Signed in
+      var user = userCredential.user;
+      // ...
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    });
+ 
+  // Function to handle sign-in
+  function signIn(event) {
+    event.preventDefault();
+  
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+  
+    // Use Firebase SDK to sign in
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Sign-in successful, do something (e.g., redirect to another page)
+        var user = userCredential.user;
+        console.log("Sign-in successful:", user);
+      })
+      .catch((error) => {
+        // Handle sign-in errors
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.error("Sign-in error:", errorMessage);
+      });
+  }
+
+  
+  
+  
+  
+  
+  
+  
   
   
   
