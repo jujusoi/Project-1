@@ -70,6 +70,73 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- JavaScript -->
-    <script src="recipelist.js"></script>
+    <script>
+        
+// Function to handle the recipe search
+function searchRecipes(query) {
+    const appId = '9267bdde'; // App ID
+    const appKey = '4529adbb76333a4f1081930cfc2af312'; // API key
+    const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${appKey}`; // URL
+
+    fetch(url)
+    .then(response => response.json()) // Parse response
+    .then(data => {
+        displayRecipes(data.hits);
+    })
+    .catch(error => {
+        console.log(`Request failed with error: ${error}`); // Console will log "Request failed with error: error"
+    });
+}
+
+// Function to display recipes
+function displayRecipes(recipes) {
+    const recipesList = document.getElementById('recipeList');
+    recipesList.innerHTML = ''; // Clear previous results
+
+    recipes.forEach(hit => {
+        const recipe = hit.recipe;
+
+        // Create HTML elements for the recipe details
+        const recipeCard = document.createElement('div'); // Create recipe card
+        recipeCard.classList.add('recipe-card'); // Add class
+
+        const recipeName = document.createElement('h3'); // Create recipe name
+        recipeName.textContent = recipe.label; // Add recipe name
+        recipeCard.appendChild(recipeName); // Add recipe name to recipe card
+
+        const recipeURL = document.createElement('a');// Create recipe URL
+        recipeURL.href = recipe.url;// Add recipe URL
+        recipeURL.textContent = recipe.url;// Add recipe URL
+        recipeCard.appendChild(recipeURL);// Add recipe URL to recipe card
+
+        const recipeImage = document.createElement('img');// Create recipe image
+        recipeImage.src = recipe.image; // Add recipe image
+        recipeCard.appendChild(recipeImage);// Add recipe image to recipe card
+
+        const recipeIngredients = document.createElement('p');// Create recipe ingredients
+        recipeIngredients.textContent = 'Ingredients: ' + recipe.ingredientLines.join(', ');
+        recipeCard.appendChild(recipeIngredients);
+
+        const recipeCookingTime = document.createElement('p');
+        recipeCookingTime.textContent = 'Cooking Time: ' + recipe.totalTime + ' minutes';
+        recipeCard.appendChild(recipeCookingTime);
+
+        // Add the recipe card to the recipes list
+        recipesList.appendChild(recipeCard);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    let url = new URL(window.location.href);
+    let searchTerm = url.searchParams.get('ingredient');
+  
+    if (searchTerm) {
+        searchRecipes(searchTerm);
+    }
+});
+    
+    </script>
+        <script src="recipelist.js"></script>
+
 </body>
 </html>
