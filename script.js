@@ -42,17 +42,6 @@ function searchRecipes(query) {
 
                 // Add the recipe card to the recipes list
                 recipesList.appendChild(recipeCard);
-                recipeName.addEventListener("click", function() {
-                    console.log("works"); 
-                    var descriptionArray = [recipe.cuisineType, recipe.dishType, recipe.mealType]; // Create description array
-                    window.localStorage.setItem("RecipeName", recipe.label); 
-                    window.localStorage.setItem("RecipeImage", recipe.image);
-                    window.localStorage.setItem("RecipeIngredients", JSON.stringify(recipe.ingredients));
-                    window.localStorage.setItem("RecipeDescription", descriptionArray);
-                    window.localStorage.setItem("RecipeLink", recipe.url);
-                    window.localStorage.setItem("RecipeNutrients", JSON.stringify(recipe.digest));
-                    window.location.replace("recipe.html");
-                })
             });
         } else {
             console.log("No recipes found."); // Console will log "No recipes found"
