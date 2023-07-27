@@ -8,6 +8,11 @@ body {
     background-color: #d5eaed;
 }
 
+.navbar {
+    height: 120px;
+    padding: 50px;
+}
+
 
 .custom-max-width {
     max-width: 750px; /* Set this to whatever you prefer */
@@ -26,12 +31,6 @@ body {
 .custom-subtitle-color {
     color: #6a6d6d; /* Pantone 808C */
     line-height: 1.3; /* Adjust this value as needed */
-
-}
-
-.logo-nav {
-    width: 100px;  
-    height: 100px; 
 }
 
 .title.is-5 {
@@ -96,5 +95,7 @@ input::placeholder {
     transition: height 0.3s ease-in-out;
 }
 
-
+.filter-controls {
+    margin-bottom: 10rem;
+}
  

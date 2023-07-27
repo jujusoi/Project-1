@@ -17,17 +17,17 @@
     <div class="hero is-fullheight">
         <div class="hero-head">
             <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="./index.html">
-                        <img src="./assets/images/sitelogo.png" alt="Logo" width="50" height="50">
-                    </a>
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </a>
-                </div>
                 <div class="navbar-menu">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="./index.html">
+                            <img src="./assets/images/sitelogo.png" alt="Logo">
+                        </a>
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
                     <div class="navbar-start">
                         <a href="recipelist.html" class="navbar-item">Recipes</a>
                         <a href="nutritional.html" class="navbar-item">Nutritional</a>
@@ -42,7 +42,7 @@
         </div>
 
         <!-- Main Content Section -->
-        <main class="container">
+        <main class="container is-fullhd">
             <div class="tile is-ancestor">
                 <div class="tile is-4 is-parent is-vertical">
                     <div class="tile is-child box" id="recipe-nutrient-holder">
@@ -54,10 +54,16 @@
                             <img id="recipe-image" src="recipe-photo.jpg" alt="Recipe Photo">
                         </article>
                     </div>
+                    <div class="tile is-child box">
+                        <article class="tile is-child">
+                            <h2 class="title" id="nutrient-title">Nutrients</h2>
+                            <ul id="nutrient-list"></ul>
+                        </article>
+                    </div>
                 </div>
                 <div class="tile is-parent is-vertical">
                     <div class="tile is-child is-vertical is-8 box">
-                        
+                        <h3 id="recipe-description"></h3>
                     </div>
                     <div class="tile is-child box" id="recipe-ingredients-holder">
                         <h2 class="title" id="recipe-ingredients">Ingredients</h2>
@@ -68,16 +74,10 @@
                             <!-- Add more steps  -->
                         </div>
                     </div>
-
-                </div>
-                <div class="tile is-parent box">
-                    <article class="tile is-child">
-                        <h2 class="title" id="nutrient-title">Nutrients</h2>
-                        <ul id="nutrient-list"></ul>
-                    </article>
+                    
                 </div>
             </div>
-
+    
         </main>
 
         <footer class="hero-footer">
