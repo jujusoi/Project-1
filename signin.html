@@ -42,31 +42,26 @@
     <!-- Main Content Section -->
     <main>
         <div class="signin-form">
-            <h1>Sign In</h1>
-            <form id="signInForm" onsubmit="signIn(event)">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Sign In</button>
-            </form>
-            <hr>
             <h1>Sign Up</h1>
-            <form id="signUpForm" onsubmit="signUp(event)">
-                <label for="newUsername">Username:</label>
-                <input type="text" id="newUsername" name="newUsername" required>
+            <form id="signUpForm" onsubmit="signUp(event)" autocomplete="on">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="newEmail" name="email" required>
                 <label for="newPassword">Password:</label>
                 <input type="password" id="newPassword" name="newPassword" required>
                 <button type="submit">Sign Up</button>
             </form>
-            <div class="error-link">
-                <a href="error.html">Click here to view an example error page</a>
-            </div>
+            <hr>
+            <h1>Sign In</h1>
+            <form id="signInForm" onsubmit="signIn(event)" autocomplete="on">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Sign In</button>
+            </form>
         </div>
     </main>
-
+    
     <!-- Footer Section -->
     <footer>
         <!-- Add your social media links here -->
@@ -78,6 +73,10 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
+    <!-- Add Firebase SDK scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="signin.js"></script>
+
 </body>
 </html>

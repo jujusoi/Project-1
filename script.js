@@ -163,4 +163,3 @@ document.getElementById('search-form').addEventListener('submit', function(event
     const query = document.getElementById('query-input').value; // Get the query
     searchRecipes(query); // Call the searchRecipes function
 });
-
