@@ -40,10 +40,7 @@ function signIn(event) {
     });
 }
 // Define the listForms function
-function listForms() {
-    // Replace this with your desired functionality
-    console.log("listForms function called!");
-  }
+function listForms() 
 
 // Function to handle sign-up
 function signUp(event) {
