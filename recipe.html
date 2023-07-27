@@ -14,78 +14,80 @@
 </head>
 
 <body>
-    <div class="hero-head">
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="./index.html">
-                    <img src="./assets/images/sitelogo.png" alt="Logo" width="50" height="50">
-                </a>
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-            <div class="navbar-menu">
-                <div class="navbar-start">
-                    <a href="recipelist.html" class="navbar-item">Recipes</a>
-                    <a href="nutritional.html" class="navbar-item">Nutritional</a>
+    <div class="hero is-fullheight">
+        <div class="hero-head">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="./index.html">
+                        <img src="./assets/images/sitelogo.png" alt="Logo" width="50" height="50">
+                    </a>
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
                 </div>
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <button class="button custom-button-color is-rounded">Sign-in</button>
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a href="recipelist.html" class="navbar-item">Recipes</a>
+                        <a href="nutritional.html" class="navbar-item">Nutritional</a>
+                    </div>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <button class="button custom-button-color is-rounded">Sign-in</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-    </div>
+            </nav>
+        </div>
 
-    <!-- Main Content Section -->
-    <main class="container is-fullhd">
-        <div class="tile is-ancestor">
-            <div class="tile is-4 is-parent is-vertical">
-                <div class="tile is-child box" id="recipe-nutrient-holder">
-                    <article class="" id="name-and-save">
-                        <h1 class="title" id="recipe-title">Recipe Title</h1>
-                        <button class="" id="save-recipe-button" data-activated="no">Save for Later</button>
-                    </article>
-                    <article class="tile is-child" id="recipe-image-holder">
-                        <img id="recipe-image" src="recipe-photo.jpg" alt="Recipe Photo">
-                    </article>
+        <!-- Main Content Section -->
+        <main class="container">
+            <div class="tile is-ancestor">
+                <div class="tile is-4 is-parent is-vertical">
+                    <div class="tile is-child box" id="recipe-nutrient-holder">
+                        <article class="" id="name-and-save">
+                            <h1 class="title" id="recipe-title">Recipe Title</h1>
+                            <button class="" id="save-recipe-button" data-activated="no">Save for Later</button>
+                        </article>
+                        <article class="tile is-child" id="recipe-image-holder">
+                            <img id="recipe-image" src="recipe-photo.jpg" alt="Recipe Photo">
+                        </article>
+                    </div>
                 </div>
-                <div class="tile is-child box">
+                <div class="tile is-parent is-vertical">
+                    <div class="tile is-child is-vertical is-8 box">
+                        
+                    </div>
+                    <div class="tile is-child box" id="recipe-ingredients-holder">
+                        <h2 class="title" id="recipe-ingredients">Ingredients</h2>
+                        <ul class="content is-normal" id="recipe-list"></ul>
+                        <div class="tile is-child" id="recipe-recipe-holder">
+                            <h2 class="title">Recipe</h2>
+                            <button id="method-link"><a href="" id="recipe-link"></a></button>
+                            <!-- Add more steps  -->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tile is-parent box">
                     <article class="tile is-child">
                         <h2 class="title" id="nutrient-title">Nutrients</h2>
                         <ul id="nutrient-list"></ul>
                     </article>
                 </div>
             </div>
-            <div class="tile is-parent is-vertical">
-                <div class="tile is-child is-vertical is-8 box">
-                    <h3 id="recipe-description"></h3>
-                </div>
-                <div class="tile is-child box" id="recipe-ingredients-holder">
-                    <h2 class="title" id="recipe-ingredients">Ingredients</h2>
-                    <ul class="content is-normal" id="recipe-list"></ul>
-                    <div class="tile is-child" id="recipe-recipe-holder">
-                        <h2 class="title">Recipe</h2>
-                        <button id="method-link"><a href="" id="recipe-link"></a></button>
-                        <!-- Add more steps  -->
-                    </div>
-                </div>
 
-            </div>
-        </div>
+        </main>
 
-    </main>
-
-    <footer class="hero-footer">
-        <div class="content has-text-centered ">
+        <footer class="hero-footer">
+            <div class="content has-text-centered ">
                 <a href="#"><i class="fab fa-facebook icon is-large m-3"></i></a>
                 <a href="#"><i class="fab fa-twitter icon is-large m-3"></i></a>
                 <a href="#"><i class="fab fa-snapchat icon is-large m-3"></i></a>
-        </div>
-    </footer>
+            </div>
+        </footer>
+    </div>
 
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
