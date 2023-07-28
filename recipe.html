@@ -1,88 +1,98 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe - Recipe Finder</title>
-    <!-- Add  CSS link  -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Recipe Radar | chosen recipe</title>
 </head>
+
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <div class="nav-logo">
-                <a href="index.html"><img src="logo.png" alt="Recipe Finder"></a>
-            </div>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="recipelist.html">Recipes & Menus</a></li>
-                    <li><a href="nutritional.html">Nutritional</a></li>
-                </ul>
-                <!--  dropdown menu  -->
-                <div class="dropdown">
-                    <button class="dropbtn">More</button>
-                    <div class="dropdown-content">
-                        <a href="recipelist.html">Recipe List</a>
+    <div class="hero is-fullheight">
+        <div class="hero-head">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-menu">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="./index.html">
+                            <img src="./assets/images/sitelogo.png" alt="Logo">
+                        </a>
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-start">
+                        <a href="recipelist.html" class="navbar-item">Recipes</a>
+                        <a href="nutritional.html" class="navbar-item">Nutritional</a>
+                    </div>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <button class="button custom-button-color is-rounded">Sign-in</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Find a recipe">
-                <button type="submit" onclick="filterRecipes()">Search</button>
-            </div>
-            <!-- sign-in bar  -->
-            <div class="sign-in-bar">
-                <button type="button" onclick="goToSignInPage()">Sign In</button>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </div>
 
-    <!-- Main Content Section -->
-    <main>
-        <div class="recipe-container">
-            <div id="recipe-and-description">
-                <div id="name-and-save">
-                    <h1 id="recipe-title">Recipe Title</h1>
-                    <button id="save-recipe-button" data-activated="no">Save For Later</button>
+        <!-- Main Content Section -->
+        <main class="container is-fullhd">
+            <div class="tile is-ancestor">
+                <div class="tile is-4 is-parent is-vertical">
+                    <div class="tile is-child box" id="recipe-nutrient-holder">
+                        <article class="" id="name-and-save">
+                            <h1 class="title" id="recipe-title">Recipe Title</h1>
+                            <button class="" id="save-recipe-button" data-activated="no">Save for Later</button>
+                        </article>
+                        <article class="tile is-child" id="recipe-image-holder">
+                            <img id="recipe-image" src="recipe-photo.jpg" alt="Recipe Photo">
+                        </article>
+                    </div>
+                    <div class="tile is-child box">
+                        <article class="tile is-child">
+                            <h2 class="title" id="nutrient-title">Nutrients</h2>
+                            <ul id="nutrient-list"></ul>
+                        </article>
+                    </div>
                 </div>
-                <h3 id="recipe-description"></h3>
+                <div class="tile is-parent is-vertical">
+                    <div class="tile is-child is-vertical is-8 box">
+                        <h3 id="recipe-description"></h3>
+                    </div>
+                    <div class="tile is-child box" id="recipe-ingredients-holder">
+                        <h2 class="title" id="recipe-ingredients">Ingredients</h2>
+                        <ul class="content is-normal" id="recipe-list"></ul>
+                        <div class="tile is-child" id="recipe-recipe-holder">
+                            <h2 class="title">Recipe</h2>
+                            <button id="method-link"><a href="" id="recipe-link"></a></button>
+                            <!-- Add more steps  -->
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
-            <div id="recipe-image-holder">
-                <img id="recipe-image" src="recipe-photo.jpg" alt="Recipe Photo">
-            </div>
-            <div id="recipe-ingredients-holder">
-                <h2 id="recipe-ingredients">Ingredients</h2>
-                <ul id="recipe-list" class="ingredients-list">
-                </ul>
-            </div>
-            <div id="recipe-nutrient-holder">
-                <h2 id="nutrient-title">Nutrients</h2>
-                <ul id="nutrient-list">
-                </ul>
-            </div>
-            <div id="recipe-recipe-holder">
-                <h2>Recipe</h2>
-                    <button id="method-link"><a href="" id="recipe-link"></a></button>
-                    <!-- Add more steps  -->
-            </div>
-        </div>
-    </main>
+    
+        </main>
 
-    <!-- Footer Section -->
-    <footer>
-        <!-- social media links  -->
-        <div class="social-box">
-            <a href="#" target="_blank" class="social-link">Facebook</a>
-            <a href="#" target="_blank" class="social-link">Twitter</a>
-            <a href="#" target="_blank" class="social-link">Instagram</a>
-        </div>
-    </footer>
+        <footer class="hero-footer">
+            <div class="content has-text-centered ">
+                <a href="#"><i class="fab fa-facebook icon is-large m-3"></i></a>
+                <a href="#"><i class="fab fa-twitter icon is-large m-3"></i></a>
+                <a href="#"><i class="fab fa-snapchat icon is-large m-3"></i></a>
+            </div>
+        </footer>
+    </div>
 
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./assets/js/recipe.js"></script>
 </body>
+
 </html>

@@ -1,76 +1,80 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutritional Guide - Recipe Finder</title>
-    <!-- Add  CSS link  -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Recipe Radar | nutritional guide</title>
 </head>
+
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <div class="nav-logo">
-                <a href="index.html"><img src="logo.png" alt="Recipe Finder"></a>
-            </div>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="recipelist.html">Recipes & Menus</a></li>
-                    <li><a href="nutritional.html">Nutritional</a></li>
-                </ul>
-                <!--  dropdown menu  -->
-                <div class="dropdown">
-                    <button class="dropbtn">More</button>
-                    <div class="dropdown-content">
-                        <a href="recipelist.html">Recipe List</a>
+    <div class="hero is-fullheight">
+        <div class="hero-head">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="./index.html">
+                        <img src="./assets/images/sitelogo.png" alt="Logo" width="50" height="50">
+                    </a>
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a href="nutritional.html" class="navbar-item">Nutritional</a>
+                    </div>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <button class="button custom-button-color is-rounded">Sign-in</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Find a recipe">
-                <button type="submit" onclick="filterRecipes()">Search</button>
-            </div>
-            <!-- Add your sign-in bar here -->
-            <div class="sign-in-bar">
-                <button type="button" onclick="goToSignInPage()">Sign In</button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Content Section -->
-    <main>
-        <div class="nutritional-guide">
-            <h1>Nutritional Guide</h1>
-            <p>
-                Welcome to our Nutritional Guide! Eating a balanced and nutritious diet is essential for maintaining good health and well-being. Here are some key principles to keep in mind when planning your meals:
-            </p>
-            <ul class="nutrients-list">
-                <li>Include a variety of fruits and vegetables in your diet to get essential vitamins, minerals, and antioxidants.</li>
-                <li>Choose whole grains like brown rice, quinoa, and whole wheat for added fiber and nutrients.</li>
-                <li>Include lean proteins such as poultry, fish, beans, and tofu to support muscle health.</li>
-                <li>Limit added sugars and processed foods to promote overall health.</li>
-                <li>Stay hydrated by drinking plenty of water throughout the day.</li>
-                <li>Enjoy treats in moderation and focus on balanced and sustainable eating habits.</li>
-            </ul>
-            <p>
-                Remember, everyone's nutritional needs are unique, so consult with a registered dietitian or healthcare professional for personalized guidance.
-            </p>
+            </nav>
         </div>
-    </main>
 
-    <!-- Footer Section -->
-    <footer>
-        <!--  social media links -->
-        <div class="social-box">
-            <a href="#" target="_blank" class="social-link">Facebook</a>
-            <a href="#" target="_blank" class="social-link">Twitter</a>
-            <a href="#" target="_blank" class="social-link">Instagram</a>
-        </div>
-    </footer>
+        <!-- Main Content Section -->
+        <main>
+            <div class="nutritional-guide">
+                <h2>Nutritional Guide</h2>
+                <p>
+                    Welcome to our Nutritional Guide! Eating a balanced and nutritious diet is essential for maintaining
+                    good health and well-being. Here are some key principles to keep in mind when planning your meals:
+                </p>
+                <ul class="nutrients-list">
+                    <li>Include a variety of fruits and vegetables in your diet to get essential vitamins, minerals, and
+                        antioxidants.</li>
+                    <li>Choose whole grains like brown rice, quinoa, and whole wheat for added fiber and nutrients.</li>
+                    <li>Include lean proteins such as poultry, fish, beans, and tofu to support muscle health.</li>
+                    <li>Limit added sugars and processed foods to promote overall health.</li>
+                    <li>Stay hydrated by drinking plenty of water throughout the day.</li>
+                    <li>Enjoy treats in moderation and focus on balanced and sustainable eating habits.</li>
+                </ul>
+                <p>
+                    Remember, everyone's nutritional needs are unique, so consult with a registered dietitian or
+                    healthcare professional for personalized guidance.
+                </p>
+            </div>
+        </main>
+
+        <footer class="hero-footer">
+            <div class="content has-text-centered ">
+                <a href="#"><i class="fab fa-facebook icon is-large m-3"></i></a>
+                <a href="#"><i class="fab fa-twitter icon is-large m-3"></i></a>
+                <a href="#"><i class="fab fa-snapchat icon is-large m-3"></i></a>
+            </div>
+        </footer>
+    </div>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
+
 </html>

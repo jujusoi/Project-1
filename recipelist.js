@@ -30,8 +30,11 @@ function displayRecipes(recipes) {
 
     recipes.forEach(recipe => {
         // Create HTML elements for the recipe details
+        const columnEl = document.createElement('div');
+        columnEl.classList.add('columns');
+
         const recipeCard = document.createElement('div');
-        recipeCard.classList.add('recipe-card');
+        recipeCard.classList.add('card');
 
         const recipeName = document.createElement('h3');
         recipeName.classList.add("recipe-title");
@@ -40,7 +43,7 @@ function displayRecipes(recipes) {
 
         // Add click event listener to redirect to the recipe.html page
         const recipeImage = document.createElement('img');
-        recipeImage.classList.add("recipe-image");
+        recipeImage.classList.add("card-image");
         recipeImage.src = recipe.image;
         recipeImage.addEventListener('click', () => {
             // Store the recipe details in session storage to pass to recipe.html
