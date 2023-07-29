@@ -15,17 +15,40 @@
     <div class="hero is-fullheight">
         <div class="hero-head">
             <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="./index.html">
-                        <img src="./assets/images/sitelogo.png" alt="Logo">
-                    </a>
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </a>
-                </div>
-                <div class="navbar-menu">
+                <div class="navbar-menu is-flex is-flex-direction-row is-align-items-center">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="./index.html">
+                            <img src="./assets/images/sitelogo.png" alt="Logo">
+                        </a>
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-start">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <form id="input-form">
+                                    <input id="searchInput" class="input is-rounded" type="text"
+                                        placeholder="Search an Ingredient">
+                                </form>
+                            </div>
+                            <div id="searchButton" class="control">
+                                <button class="button custom-button-color is-rounded">
+                                    <span class="icon icon-rounded">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <a href="index.html" class="navbar-item">
+                                <span class="icon">
+                                    <i class="fas fa-arrow-left"></i>
+                                </span>
+                                Back
+                            </a>
+                        </div>
+                    </div>
 
                     <div class="navbar-end">
                         <div class="navbar-item">
