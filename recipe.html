@@ -4,12 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
     <title>Recipe Radar | chosen recipe</title>
 </head>
 
@@ -29,8 +27,7 @@
                         </a>
                     </div>
                     <div class="navbar-start">
-                        <a href="recipelist.html" class="navbar-item">Recipes</a>
-                        <a href="nutritional.html" class="navbar-item">Nutritional</a>
+
                     </div>
                     <div class="navbar-end">
                         <div class="navbar-item">
@@ -48,40 +45,39 @@
                     <div class="tile is-child box" id="recipe-nutrient-holder">
                         <article class="" id="name-and-save">
                             <h1 class="title" id="recipe-title">Recipe Title</h1>
-                            <button class="" id="save-recipe-button" data-activated="no">Save for Later</button>
+                            <button class="button custom-button-color is-rounded mb-4" id="save-recipe-button" data-activated="no">Save for Later</button>
                         </article>
                         <article class="tile is-child" id="recipe-image-holder">
                             <img id="recipe-image" src="recipe-photo.jpg" alt="Recipe Photo">
                         </article>
-                    </div>
-                    <div class="tile is-child box">
-                        <article class="tile is-child">
-                            <h2 class="title" id="nutrient-title">Nutrients</h2>
-                            <ul id="nutrient-list"></ul>
-                        </article>
-                    </div>
-                </div>
-                <div class="tile is-parent is-vertical">
-                    <div class="tile is-child is-vertical is-8 box">
-                        <h3 id="recipe-description"></h3>
                     </div>
                     <div class="tile is-child box" id="recipe-ingredients-holder">
                         <h2 class="title" id="recipe-ingredients">Ingredients</h2>
                         <ul class="content is-normal" id="recipe-list"></ul>
                         <div class="tile is-child" id="recipe-recipe-holder">
                             <h2 class="title">Recipe</h2>
-                            <button id="method-link"><a href="" id="recipe-link"></a></button>
-                            <!-- Add more steps  -->
+                            <button class="button custom-button-color is-rounded" id="method-link"><a href="" id="recipe-link"></a></button>
                         </div>
                     </div>
-                    
+                </div>
+                <div class="tile is-parent is-vertical">
+                    <div class="tile is-child is-vertical is-7 box">
+                        <h3 id="recipe-description"></h3>
+                    </div>
+                    <div class="tile is-child box">
+                        <article class="tile is-child">
+                            <h2 class="title" id="nutrient-title">Nutrients</h2>
+                            <ul id="nutrient-list"></ul>
+                        </article>
+
+                    </div>
+
                 </div>
             </div>
-    
         </main>
 
         <footer class="hero-footer">
-            <div class="content has-text-centered ">
+            <div class="content has-text-centered mt-5">
                 <a href="#"><i class="fab fa-facebook icon is-large m-3"></i></a>
                 <a href="#"><i class="fab fa-twitter icon is-large m-3"></i></a>
                 <a href="#"><i class="fab fa-snapchat icon is-large m-3"></i></a>

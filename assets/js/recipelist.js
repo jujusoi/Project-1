@@ -35,15 +35,18 @@ function displayRecipes(recipes) {
 
         const recipeCard = document.createElement('div');
         recipeCard.classList.add('card');
+        recipeCard.setAttribute("class", "card m-4 p-4 is-clickable");
 
         const recipeName = document.createElement('h3');
         recipeName.classList.add("recipe-title");
+        recipeName.setAttribute("class", "mb-5 title is-6");
         recipeName.textContent = recipe.label;
         recipeCard.appendChild(recipeName);
 
         // Add click event listener to redirect to the recipe.html page
         const recipeImage = document.createElement('img');
         recipeImage.classList.add("card-image");
+        recipeImage.setAttribute("class", "is-clickable")
         recipeImage.src = recipe.image;
         recipeImage.addEventListener('click', () => {
             // Store the recipe details in session storage to pass to recipe.html
@@ -57,6 +60,7 @@ function displayRecipes(recipes) {
 
         const recipeCookingTime = document.createElement('p');
         recipeCookingTime.classList.add('cooking-time');
+        recipeCookingTime.setAttribute("class", "mt-3")
         recipeCookingTime.textContent = 'Cooking Time: ' + recipe.totalTime + ' minutes';
         recipeCard.appendChild(recipeCookingTime);
 

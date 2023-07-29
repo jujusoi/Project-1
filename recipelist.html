@@ -4,12 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
     <title>Recipe Radar | recipe results</title>
 </head>
 
@@ -28,10 +26,7 @@
                     </a>
                 </div>
                 <div class="navbar-menu">
-                    <div class="navbar-start">
-                        <a href="recipelist.html" class="navbar-item">Recipes</a>
-                        <a href="nutritional.html" class="navbar-item">Nutritional</a>
-                    </div>
+
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <button class="button custom-button-color is-rounded">Sign-in</button>
@@ -43,28 +38,28 @@
 
         <!-- Main Content Section -->
         <main>
-            <div class="recipe-list-container">
-                <h1>Popular Recipes</h1>
+            <div class="container">
+                <h2 class="title is-5">Filter the recipes</h2>
                 <!-- Adding filter inputs and button -->
-                <div class="filter-controls">
-                    <label for="cookingTimeInput">Max Cooking Time (minutes):</label>
-                    <input type="number" id="cookingTimeInput" min="0" step="5">
-                    <label for="caloriesInput">Max Calories:</label>
-                    <input type="number" id="caloriesInput" min="0" step="50">
-                    <button id="filterButton">Filter Recipes</button>
-                    <button id="sortByCookingTime">Sort by Cooking Time</button>
-                    <button id="sortByCalories">Sort by Calories</button>
+                <div class="filter-controls is-flex is-flex-direction-row is-align-items-center">
+                    <label for="cookingTimeInput" class="mr-2">Max Cooking Time (minutes):</label>
+                    <input type="number" id="cookingTimeInput" min="0" step="5" class="mr-2">
+                    <label for="caloriesInput" class="mr-2">Max Calories:</label>
+                    <input type="number" id="caloriesInput" min="0" step="50" class="mr-2">
+                    <button class="button custom-button-color is-rounded mr-2" id="filterButton">Apply filter</button>
+                    <button class="button custom-button-color is-rounded mr-2" id="sortByCookingTime">Sort by Cooking Time</button>
+                    <button class="button custom-button-color is-rounded mr-2" id="sortByCalories">Sort by Calories</button>
                 </div>
 
-                <div class="columns is-4 is-multiline is-centered" id="recipeList">
+                <div class="columns is-multiline is-centered m-5" id="recipeList">
                     <!-- Recipe list will be dynamically generated using JavaScript -->
-                    <div class="card column is-4"></div>
                 </div>
+
             </div>
         </main>
 
         <footer class="hero-footer">
-            <div class="content has-text-centered ">
+            <div class="content has-text-centered mt-5">
                 <a href="#"><i class="fab fa-facebook icon is-large m-3"></i></a>
                 <a href="#"><i class="fab fa-twitter icon is-large m-3"></i></a>
                 <a href="#"><i class="fab fa-snapchat icon is-large m-3"></i></a>
@@ -142,7 +137,7 @@
         });
 
     </script>
-    <script src="recipelist.js"></script>
+    <script src="./assets/js/recipelist.js"></script>
 
 </body>
 
