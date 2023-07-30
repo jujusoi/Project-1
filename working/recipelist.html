@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Recipe Radar | recipe results</title>
+</head>
+
+<body>
+    <div class="hero is-fullheight">
+        <div class="hero-head">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-menu is-flex is-flex-direction-row is-align-items-center">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="./index.html">
+                            <img src="./assets/images/sitelogo.png" alt="Logo">
+                        </a>
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-start">
+                        <div class="field has-addons search-form"> <!-- Add the "search-form" class here -->
+                            <div class="control is-expanded">
+                                <form id="input-form">
+                                    <input id="searchInput" class="input is-rounded" type="text" placeholder="Search an Ingredient">
+                                </form>
+                            </div>
+                            <div id="searchButton" class="control">
+                                <button class="button custom-button-color is-rounded">
+                                    <span class="icon icon-rounded">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <a href="index.html" class="navbar-item">
+                                <span class="icon">
+                                    <i class="fas fa-arrow-left"></i>
+                                </span>
+                                Back
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <button class="button custom-button-color is-rounded">Sign-in</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content Section -->
+        <main>
+            <div class="container">
+                <h2 class="title is-5">Filter the recipes</h2>
+                <!-- Adding filter inputs and button -->
+            <div class="filter-controls">
+                <label for="cookingTimeInput">Max Cooking Time (minutes):</label>
+                <input type="number" id="cookingTimeInput" min="0" step="5">
+                <label for="caloriesInput">Max Calories:</label>
+                <input type="number" id="caloriesInput" min="0" step="50">
+                <button id="filterButton">Filter Recipes</button>
+                <button id="sortByCookingTime">Sort By Cooking Time</button>
+                <button id="sortByCalories">Sort By Calories</button>
+            </div>
+
+                <div class="columns is-multiline is-centered m-5" id="recipeList">
+                    <!-- Recipe list will be dynamically generated using JavaScript -->
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="hero-footer">
+            <div class="content has-text-centered mt-5">
+                <a href="#"><i class="fab fa-facebook icon is-large m-3"></i></a>
+                <a href="#"><i class="fab fa-twitter icon is-large m-3"></i></a>
+                <a href="#"><i class="fab fa-snapchat icon is-large m-3"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+
+        // Function to handle the recipe search
+        function searchRecipes(query) {
+            const appId = '9267bdde'; // App ID
+            const appKey = '4529adbb76333a4f1081930cfc2af312'; // API key
+            const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${appKey}`; // URL
+
+            fetch(url)
+                .then(response => response.json()) // Parse response
+                .then(data => {
+                    displayRecipes(data.hits);
+                })
+                .catch(error => {
+                    console.log(`Request failed with error: ${error}`); // Console will log "Request failed with error: error"
+                });
+        }
+
+        // Function to display recipes
+        function displayRecipes(recipes) {
+            const recipesList = document.getElementById('recipeList');
+            recipesList.innerHTML = ''; // Clear previous results
+
+            recipes.forEach(hit => {
+                const recipe = hit.recipe;
+
+                // Create HTML elements for the recipe details
+                const recipeCard = document.createElement('div'); // Create recipe card
+                recipeCard.classList.add('recipe-card'); // Add class
+
+                const recipeName = document.createElement('h3'); // Create recipe name
+                recipeName.textContent = recipe.label; // Add recipe name
+                recipeCard.appendChild(recipeName); // Add recipe name to recipe card
+
+                const recipeURL = document.createElement('a');// Create recipe URL
+                recipeURL.href = recipe.url;// Add recipe URL
+                recipeURL.textContent = recipe.url;// Add recipe URL
+                recipeCard.appendChild(recipeURL);// Add recipe URL to recipe card
+
+                const recipeImage = document.createElement('img');// Create recipe image
+                recipeImage.src = recipe.image; // Add recipe image
+                recipeCard.appendChild(recipeImage);// Add recipe image to recipe card
+
+                const recipeIngredients = document.createElement('p');// Create recipe ingredients
+                recipeIngredients.textContent = 'Ingredients: ' + recipe.ingredientLines.join(', ');
+                recipeCard.appendChild(recipeIngredients);
+
+                const recipeCookingTime = document.createElement('p');
+                recipeCookingTime.textContent = 'Cooking Time: ' + recipe.totalTime + ' minutes';
+                recipeCard.appendChild(recipeCookingTime);
+
+                // Add the recipe card to the recipes list
+                recipesList.appendChild(recipeCard);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let url = new URL(window.location.href);
+            let searchTerm = url.searchParams.get('ingredient');
+
+            if (searchTerm) {
+                searchRecipes(searchTerm);
+            }
+        });
+
+    </script>
+    <script src="recipelist.js"></script>
+
+</body>
+
+</html>
