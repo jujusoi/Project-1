@@ -2,9 +2,9 @@
 
 Recipe Radar is a web application that helps users find recipes based on the ingredients they have. It also provides nutritional information and allows users to save their favorite recipes for easy access in the future.
 
-!!!!!!!!!!!!!!!!!!!ADD SCREENSHOT HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-![Screenshot of the application](./assets/images/screenshot.png)
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+![Screenshot of the application](./assets/images/ 
+Screenshot 2023-07-30 205744.png)
+
 ## Features
 
 - **Ingredient-based Recipe Search:** Enter the ingredients you have on hand, and Recipe Radar will provide a list of recipes that use those ingredients. This feature helps you make the most of what you have in your pantry.
