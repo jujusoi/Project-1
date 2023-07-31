@@ -4,7 +4,9 @@ let recipesData = []; // Global variable to store the recipes data
 function searchRecipes(query) {
     const appId = '9267bdde'; 
     const appKey = '4529adbb76333a4f1081930cfc2af312';
-    const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${appKey}`;
+    const from = 0; // Starting index change here
+    const to = 25; // Ending index change here
+    const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${appKey}&from=${from}&to=${to}`; // URL with from and to parameters ^^^
 
     fetch(url)
         .then(response => response.json())
@@ -35,15 +37,17 @@ function displayRecipes(recipes) {
 
         const recipeCard = document.createElement('div');
         recipeCard.classList.add('card');
+        recipeCard.setAttribute("class", "card m-4 p-4 is-clickable");
 
         const recipeName = document.createElement('h3');
         recipeName.classList.add("recipe-title");
+        recipeName.setAttribute("class", "mb-5 title is-6");
         recipeName.textContent = recipe.label;
         recipeCard.appendChild(recipeName);
 
         // Add click event listener to redirect to the recipe.html page
         const recipeImage = document.createElement('img');
-        recipeImage.classList.add("card-image");
+        recipeImage.classList.add("recipe-image");
         recipeImage.src = recipe.image;
         recipeImage.addEventListener('click', () => {
             // Store the recipe details in session storage to pass to recipe.html
