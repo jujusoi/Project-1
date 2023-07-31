@@ -1,67 +1,90 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error - Recipe Finder</title>
-    <!-- Add  CSS link here -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Recipe Radar</title>
 </head>
+
 <body>
     <!-- Header Section -->
-    <header>
-        <nav>
-            <div class="nav-logo">
-                <a href="index.html"><img src="logo.png" alt="Recipe Finder"></a>
-            </div>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="recipelist.html">Recipes & Menus</a></li>
-                    <li><a href="nutritional.html">Nutritional</a></li>
-                </ul>
-                <!-- dropdown menu here -->
-                <div class="dropdown">
-                    <button class="dropbtn">More</button>
-                    <div class="dropdown-content">
-                        <a href="recipelist.html">Recipe List</a>
+    <div class="hero is-fullheight">
+        <div class="hero-head">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-menu is-flex is-flex-direction-row is-align-items-center">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="./index.html">
+                            <img src="./assets/images/sitelogo.png" alt="Logo">
+                        </a>
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-start">
+                        <div class="field has-addons search-form"> <!-- Add the "search-form" class here -->
+                            <div class="control is-expanded">
+                                <form id="input-form">
+                                    <input id="searchInput" class="input is-rounded" type="text"
+                                        placeholder="Search an Ingredient">
+                                </form>
+                            </div>
+                            <div id="searchButton" class="control">
+                                <button class="button custom-button-color is-rounded">
+                                    <span class="icon icon-rounded">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </button>
+                            </div>
+                            <a href="index.html" class="navbar-item">
+                                <span class="icon">
+                                    <i class="fas fa-arrow-left"></i>
+                                </span>
+                                Back
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <a href="signin.html" class="button custom-button-color is-rounded">Sign-In</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Find a recipe">
-                <button type="submit" onclick="filterRecipes()">Search</button>
-            </div>
-            <!--  sign-in bar here -->
-            <div class="sign-in-bar">
-                <button type="button" onclick="goToSignInPage()">Sign In</button>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Main Content Section -->
-    <main>
-        <div class="error-container">
-            <h1>Oops! Something went wrong.</h1>
-            <p>
-                We apologize for the inconvenience, but it seems that an error has occurred.
-                Please try again later or contact our support team for assistance.
-            </p>
-            <img src="error_image.png" alt="Error Image">
+            </nav>
         </div>
-    </main>
 
-    <!-- Footer Section -->
-    <footer>
-        <!-- social media links  -->
-        <div class="social-box">
-            <a href="#" target="_blank" class="social-link">Facebook</a>
-            <a href="#" target="_blank" class="social-link">Twitter</a>
-            <a href="#" target="_blank" class="social-link">Instagram</a>
-        </div>
-    </footer>
+        <!-- Main Content Section -->
+        <main>
+            <div class="error-container container">
+                <h1>Oops! Something went wrong.</h1>
+                <p>
+                    We apologize for the inconvenience, but it seems that an error has occurred.
+                    Please try again later or contact our support team for assistance.
+                </p>
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer>
+            <!-- social media links  -->
+            <div class="social-box">
+                <a href="#" target="_blank" class="social-link">Facebook</a>
+                <a href="#" target="_blank" class="social-link">Twitter</a>
+                <a href="#" target="_blank" class="social-link">Instagram</a>
+            </div>
+        </footer>
+
+    </div>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
