@@ -22,6 +22,8 @@ These instructions will get you a copy of the project up and running on your loc
 2. Navigate to the project directory in your terminal.
 3. Open the `index.html` file in your web browser.
 
+4. Live site: https://jujusoi.github.io/Project-1/index.html
+
 ## Usage
 1. Enter the ingredients you have in the search bar.
 2. Click the "Search" button.
