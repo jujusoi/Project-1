@@ -1,83 +1,112 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In - Recipe Finder</title>
-    <!-- Add  CSS link  -->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="signin-styles.css"> -->
+    <title>Recipe Radar</title>
 </head>
+
 <body>
     <!-- Header Section -->
-    <header>
-        <nav>
-            <div class="nav-logo">
-                <a href="index.html"><img src="logo.png" alt="Recipe Finder"></a>
-            </div>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="recipelist.html">Recipes & Menus</a></li>
-                    <li><a href="nutritional.html">Nutritional</a></li>
-                </ul>
-                <!-- dropdown menu  -->
-                <div class="dropdown">
-                    <button class="dropbtn">More</button>
-                    <div class="dropdown-content">
-                        <a href="recipelist.html">Recipe List</a>
-                    </div>
+    <div class="hero is-fullheight">
+        <header>
+            <nav class="hero-head navbar is-justify-content-center is-align-items-center">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="./index.html">
+                        <img src="./assets/images/sitelogo.png" alt="Logo">
+                    </a>
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html" class="button custom-button-color is-rounded mr-2">Home</a></li>
+                    </ul>
+
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content Section -->
+        <main>
+            <div class="form-container columns is-centered">
+                <!-- Sign Up Form -->
+                <div id="signup-form"></div>
+                <div class="card column is-one-third m-4 is-rounded">
+                    <form class="signup-form" id="signUpForm" onsubmit="signUp(event)" autocomplete="on">
+                        <h1 class="has-text-centered">Sign Up</h1>
+                        <div class="field">
+                            <label class="label" for="newEmail">Email:</label>
+                            <div class="control">
+                                <input class="input" type="email" id="newEmail" name="email" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="newPassword">Password:</label>
+                            <div class="control">
+                                <input class="input" type="password" id="newPassword" name="newPassword" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-fullwidth is-rounded custom-button-color" type="submit">Sign
+                                    Up</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="error-message" id="signUpError"></div>
+                </div>
+
+                <!-- Sign In Form -->
+                <div id="signin-form"></div>
+                <div class="card column is-one-third m-4 is-rounded">
+                    <form class="signin-form" id="signInForm" onsubmit="signIn(event)" autocomplete="on">
+                        <h1 class="has-text-centered">Sign In</h1>
+                        <div class="field">
+                            <label class="label" for="email">Email:</label>
+                            <div class="control">
+                                <input class="input" type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="password">Password:</label>
+                            <div class="control">
+                                <input class="input" type="password" id="password" name="password" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-fullwidth is-rounded custom-button-color" type="submit">Sign
+                                    In</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="error-message" id="signInError"></div>
                 </div>
             </div>
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Find a recipe">
-                <button type="submit" onclick="filterRecipes()">Search</button>
-            </div>
-            <!-- Add your sign-in bar here -->
-            <div class="sign-in-bar">
-                <button type="button" onclick="goToSignInPage()">Sign In</button>
-            </div>
-        </nav>
-    </header>
+        </main>
 
-    <!-- Main Content Section -->
-    <main>
-        <div class="signin-form">
-            <h1>Sign In</h1>
-            <form id="signInForm" onsubmit="signIn(event)">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Sign In</button>
-            </form>
-            <hr>
-            <h1>Sign Up</h1>
-            <form id="signUpForm" onsubmit="signUp(event)">
-                <label for="newUsername">Username:</label>
-                <input type="text" id="newUsername" name="newUsername" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="newPassword">Password:</label>
-                <input type="password" id="newPassword" name="newPassword" required>
-                <button type="submit">Sign Up</button>
-            </form>
-            <div class="error-link">
-                <a href="error.html">Click here to view an example error page</a>
+        <!-- Footer Section -->
+        <footer class="hero-footer">
+            <div class="content has-text-centered mt-5">
+                <a href="#"><i class="fab fa-facebook icon is-large m-3"></i></a>
+                <a href="#"><i class="fab fa-twitter icon is-large m-3"></i></a>
+                <a href="#"><i class="fab fa-snapchat icon is-large m-3"></i></a>
             </div>
-        </div>
-    </main>
-
-    <!-- Footer Section -->
-    <footer>
-        <!-- Add your social media links here -->
-        <div class="social-box">
-            <a href="#" target="_blank" class="social-link">Facebook</a>
-            <a href="#" target="_blank" class="social-link">Twitter</a>
-            <a href="#" target="_blank" class="social-link">Instagram</a>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- Add Firebase SDK scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="signin.js"></script>

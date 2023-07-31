@@ -8,8 +8,6 @@ function searchRecipes(query) {
     .then(response => response.json()) // Parse response
     .then(data => {
         if (data.count > 0) {
-            console.log(data)
-            
             const recipesList = document.getElementById('recipes-list');
             recipesList.innerHTML = ''; // Clear previous results
             data.hits.forEach(hit => {
@@ -62,13 +60,13 @@ function initSavedItems(info) {
         createDiv.setAttribute("class", "column is-one-quarter");
         
         var cardDiv = document.createElement("div");
-        cardDiv.setAttribute("class", "card");
+        cardDiv.setAttribute("class", "card p-4");
 
         var cardImgDiv = document.createElement("div");
         cardImgDiv.setAttribute("class", "card-image");
 
         var cardImgFig = document.createElement("figure");
-        cardImgFig.setAttribute("class", "image is-4by3");
+        cardImgFig.setAttribute("class", "image is-4by3 is-clickable");
 
         var createImg = document.createElement("img");
         createImg.setAttribute("class", "saved-image");
@@ -76,17 +74,17 @@ function initSavedItems(info) {
         createImg.setAttribute("src", savedImg);
 
         var contentDiv = document.createElement("div");
-        contentDiv.setAttribute("class", "card-content");
+        contentDiv.setAttribute("class", "card-content p-2");
 
         var contentTitle = document.createElement("p");
-        contentTitle.setAttribute("class", "title");
+        contentTitle.setAttribute("class", "title is-clickable");
         contentTitle.textContent = savedName;
         var contentSub = document.createElement("p");
         contentSub.setAttribute("class", "subtitle");
 
         var createButton = document.createElement('button');
-        createButton.setAttribute("class", "saved-unsaved");
-        createButton.textContent = "X";
+        createButton.setAttribute("class", "saved-unsaved button custom-button-color is-rounded mt-3");
+        createButton.textContent = "Remove Item";
 
         cardImgFig.appendChild(createImg);
         cardImgDiv.appendChild(cardImgFig);
@@ -163,4 +161,3 @@ document.getElementById('search-form').addEventListener('submit', function(event
     const query = document.getElementById('query-input').value; // Get the query
     searchRecipes(query); // Call the searchRecipes function
 });
-
